@@ -25,7 +25,8 @@ R9. Deverá ser ainda possível importar e exportar os dados do modelos de dados
 
 2. Objectivos 
 
-Pretende-se que os alunos modelizem e implementem a aplicação descrita, cumprindo todos os objectivos propostos. Deverão nomeadamente:  • Modelizar o problema através de diagramas de classes (UML), reutilizando estruturas de dados base (grafo, árvore, etc.) e respectivos métodos/operações (propriedades, travessias, pesquisas, etc.) que permitam representar e manipular os dados necessários; 
+Pretende-se que os alunos modelizem e implementem a aplicação descrita, cumprindo todos os objectivos propostos. Deverão nomeadamente:
+• Modelizar o problema através de diagramas de classes (UML), reutilizando estruturas de dados base (grafo, árvore, etc.) e respectivos métodos/operações (propriedades, travessias, pesquisas, etc.) que permitam representar e manipular os dados necessários; 
 • Implementar os algoritmos principais para a pesquisa e processamento da informação de acordo com as funcionalidades solicitadas; 
 • Implementar o modelo de dados OO utilizando a linguagem Java; em particular devem implementar todos os requisitos funcionais enumerados e outros que se revelem úteis ou necessários; 
 • Implementar uma interface gráfica que suporte a visualização e gestão de toda a informação (e.g., visualização da rede, gestão e edição dos nós, execução de pesquisas, etc.); 
