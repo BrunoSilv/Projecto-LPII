@@ -29,8 +29,5 @@ public class Linha {
   public Paragem removeParagem(String nome) {
   return null;
   }
-
-  public void newOperation() {
-  }
-
+  
 }
