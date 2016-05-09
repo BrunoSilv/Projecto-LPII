@@ -1,6 +1,6 @@
 package edu.ufp.inf.lp2.projecto;
 
-import edu.princeton.cs.algs4.EdgeWeightedGraph;
+//import edu.princeton.cs.algs4.EdgeWeightedGraph;
 import edu.princeton.cs.algs4.DirectedEdge;
 
 public class Aresta extends DirectedEdge {
