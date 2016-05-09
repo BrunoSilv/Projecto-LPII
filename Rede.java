@@ -2,7 +2,7 @@ package edu.ufp.inf.lp2.projecto;
 
 import edu.princeton.cs.algs4.RedBlackBST;
 import java.util.Vector;
-import edu.princeton.cs.algs4.EdgeWeightedGraph;
+//import edu.princeton.cs.algs4.EdgeWeightedGraph;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 
 public class Rede extends EdgeWeightedDigraph {
