@@ -1,9 +1,12 @@
 package edu.ufp.inf.lp2.projecto;
 
 import edu.princeton.cs.algs4.RedBlackBST;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Passageiro extends RedBlackBST {
+
+    public ArrayList<Passageiro> passageiros = new ArrayList<>();
 
     public String nome;
 
@@ -15,33 +18,47 @@ public class Passageiro extends RedBlackBST {
 
     public Coordenada coordenada;
 
-    public Rede myRede;
-
-    public void addPassageiro(String nome) {
-    }
-
-    public Passageiro removePassageiro(String nome) {
-        return null;
-    }
-
-    public void addDinheiro(float valor) {
-    }
-
-    public void removeDinheiro(float preco) {
-    }
-
-    public int getIdade() {
-        return 0;
-    }
-
     //Construtor
-    public Passageiro(String nome, int id, Date dataNasc, float saldo, Coordenada coordenada, Rede myRede) {
+    public Passageiro(String nome, int id, Date dataNasc, float saldo, Coordenada coordenada) {
         this.nome = nome;
         this.id = id;
         this.dataNasc = dataNasc;
         this.saldo = saldo;
         this.coordenada = coordenada;
-        this.myRede = myRede;
+    }
+
+    public void addPassageiro(Passageiro p) {
+        int size = passageiros.size();
+        for (int i = 0; i < size; i++) {
+            Passageiro pass = passageiros.get(i);
+            if (pass.getId() == p.getId()) {
+                System.out.println("ID já existe");
+                return;
+            }
+        }
+        passageiros.add(p);
+    }
+
+    public Passageiro removePassageiro(String nome) {
+        for (Passageiro p : this.passageiros) {
+            if (p.getNome() == nome) {
+                this.passageiros.remove(p);
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public void addDinheiro(float valor) {
+        valor = this.saldo++;
+    }
+
+    public void removeDinheiro(float preco) {
+        preco = this.saldo--;
+    }
+
+    public int getIdade() {
+        return 0;
     }
 
     // Gets/Sets
@@ -83,14 +100,6 @@ public class Passageiro extends RedBlackBST {
 
     public void setCoordenada(Coordenada coordenada) {
         this.coordenada = coordenada;
-    }
-
-    public Rede getMyRede() {
-        return myRede;
-    }
-
-    public void setMyRede(Rede myRede) {
-        this.myRede = myRede;
     }
 
 }
