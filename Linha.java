@@ -6,6 +6,10 @@ public class Linha {
 
   public String nome;
 
+  
+  public Linha(String nome){
+    this.nome = nome;          // Este constructor define o nome da linha
+  }
     /**
    * 
    * @element-type Aresta
@@ -22,8 +26,11 @@ public class Linha {
    */
   public ArrayList  myAresta;
 
+  //definimos o nome e depois é criada a paragem
   public Paragem addParagem(String nome) {
-  return null;
+  Paragem novaparagem = new Paragem();
+  novaparagem.setNomeParagem(nome);
+  return novaparagem;
   }
 
   public Paragem removeParagem(String nome) {
