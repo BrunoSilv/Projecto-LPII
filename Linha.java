@@ -1,6 +1,6 @@
 package edu.ufp.inf.lp2.projecto;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Linha {
 
@@ -10,17 +10,17 @@ public class Linha {
    * 
    * @element-type Aresta
    */
-  public Vector  linhas;
+  public ArrayList  linhas;
     /**
    * 
    * @element-type Paragem
    */
-  public Vector  tem;
+  public ArrayList tem;
     /**
    * 
    * @element-type Aresta
    */
-  public Vector  myAresta;
+  public ArrayList  myAresta;
 
   public Paragem addParagem(String nome) {
   return null;
