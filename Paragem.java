@@ -12,15 +12,18 @@ public class Paragem {
 
     public String cod;
 
-    public Linha linhas;
+    public ArrayList<Linha> linhas = new ArrayList<>();
     /**
      *
      * @element-type Aresta
      */
     public ArrayList<Paragem> paragens = new ArrayList<>();
 
-    // Construtor
-    public Paragem(String nomeParagem, String zona, Coordenada coordenada, String cod, Linha linhas, ArrayList paragens) {
+    // Contructor vazio
+    public Paragem()
+    {}
+    // Construtor que poderá ser usado caso queiramos importar os dados do ficheiro
+    public Paragem(String nomeParagem, String zona, Coordenada coordenada, String cod, ArrayList linhas, ArrayList paragens) {
         this.nomeParagem = nomeParagem;
         this.zona = zona;
         this.coordenada = coordenada;
@@ -62,11 +65,11 @@ public class Paragem {
         this.cod = cod;
     }
 
-    public Linha getLinhas() {
+    public ArrayList getLinhas() {
         return linhas;
     }
 
-    public void setLinhas(Linha linhas) {
+    public void setLinhas(ArrayList linhas) {
         this.linhas = linhas;
     }
 
