@@ -1,6 +1,6 @@
 package edu.ufp.inf.lp2.projecto;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class Paragem {
 
@@ -17,10 +17,10 @@ public class Paragem {
      *
      * @element-type Aresta
      */
-    public Vector paragens;
+    public ArrayList<Paragem> paragens = new ArrayList<>();
 
     // Construtor
-    public Paragem(String nomeParagem, String zona, Coordenada coordenada, String cod, Linha linhas, Vector paragens) {
+    public Paragem(String nomeParagem, String zona, Coordenada coordenada, String cod, Linha linhas, ArrayList paragens) {
         this.nomeParagem = nomeParagem;
         this.zona = zona;
         this.coordenada = coordenada;
@@ -70,11 +70,11 @@ public class Paragem {
         this.linhas = linhas;
     }
 
-    public Vector getParagens() {
+    public ArrayList getParagens() {
         return paragens;
     }
 
-    public void setParagens(Vector paragens) {
+    public void setParagens(ArrayList paragens) {
         this.paragens = paragens;
     }
 
