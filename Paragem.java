@@ -2,7 +2,7 @@ package edu.ufp.inf.lp2.projecto;
 
 import java.util.ArrayList;
 
-public class Paragem {
+public class Paragem extends ListaParagens{
 
     public String nomeParagem;
 
@@ -17,22 +17,22 @@ public class Paragem {
      *
      * @element-type Aresta
      */
-    public ArrayList<Paragem> paragens = new ArrayList<>();
+    
 
     // Contructor vazio
     public Paragem()
     {}
     // Construtor que poderá ser usado caso queiramos importar os dados do ficheiro
-    public Paragem(String nomeParagem, String zona, Coordenada coordenada, String cod, String linha, ArrayList paragens) {
+    public Paragem(String nomeParagem, String zona, Coordenada coordenada, String cod, String linha) {
         this.nomeParagem = nomeParagem;
         this.zona = zona;
         this.coordenada = coordenada;
         this.cod = cod;
         this.linha = linha;
-        this.paragens = paragens;
+        //this. = paragens;
     }
 
-    // Gets/Sets
+// Gets/Sets
     public String getNomeParagem() {
         return nomeParagem;
     }
@@ -72,13 +72,4 @@ public class Paragem {
     public void setLinha(String linha) {
         this.linha = linha;
     }
-
-    public ArrayList getParagens() {
-        return paragens;
-    }
-
-    public void setParagens(ArrayList paragens) {
-        this.paragens = paragens;
-    }
-
 }
