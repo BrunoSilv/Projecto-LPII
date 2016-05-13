@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package edu.ufp.inf.lp2.projecto;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.RedBlackBST;
 import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
 /**
@@ -17,9 +19,14 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        // BST Passageiros
+        RedBlackBST<String, Passageiro> passageiroST = new RedBlackBST<>();
+        
         Linha novalinha;
         Paragem novaparagem;
         
+        loadPassageirosST(passageiroST, ".//data//passageiros.txt");
         
         novaparagem = criarParagem();
         novaparagem.adicionaraLista(novaparagem);
@@ -27,6 +34,20 @@ public class Main {
         novaparagem = novalinha.addParagem("Trindade", novalinha, novaparagem);
         StdOut.print(novaparagem.getLinha() + "\n" + novaparagem.getNomeParagem()+ "\n"); // a funcionar
          
+    }
+    public static void loadPassageirosST(RedBlackBST<String, Passageiro> passageiroST, String path){
+        In in = new In(path);
+        while(!in.isEmpty()){
+            String[] texto = in.readLine().split(";");
+            String id = texto[0];
+            String nome = texto[1];
+            String idade = texto[2];
+            String saldo = texto[3];
+            
+            Passageiro p = new Passageiro(id, nome, idade, saldo);
+            passageiroST.put(id, p);
+            
+        }
     }
     
     public static Linha criarLinha(String nome)
