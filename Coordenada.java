@@ -5,6 +5,11 @@ public class Coordenada {
     public float latitude;
 
     public float longitude;
+    
+    public Coordenada(float latitude) {
+        this.latitude = latitude;
+    }
+    
 
     //Construtor 
     public Coordenada(float latitude, float longitude) {
@@ -28,5 +33,10 @@ public class Coordenada {
     public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
-
+    
+    //Imprimir Coordenada "x"
+    @Override
+    public String toString() {
+        return "Coordenada{" + "latitude=" + latitude + ", longitude=" + longitude + '}';
+    }
 }

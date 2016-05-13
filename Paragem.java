@@ -7,7 +7,7 @@ public class Paragem extends ListaParagens{
     public String nomeParagem;
 
     public String zona;
-
+    
     public Coordenada coordenada;
 
     public String cod; //codigo da paragem
