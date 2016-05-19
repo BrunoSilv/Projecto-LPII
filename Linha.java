@@ -1,15 +1,23 @@
 package edu.ufp.inf.lp2.projecto;
 
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.RedBlackBST;
 import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
 
-public class Linha extends ListaParagens{
+public class Linha {
 
   public String nome;
+  
+  RedBlackBST<String,Integer> ParagensST = new RedBlackBST<>();
+  
+  Paragem novaparagem;
+
   
   public Linha(String nome){
     this.nome = nome;          // Este constructor define o nome da linha
   }
+  public Linha(){}
     /**
    * 
    * @element-type Aresta
@@ -27,24 +35,35 @@ public class Linha extends ListaParagens{
   public ArrayList  myAresta;
 
   //definimos o nome e depois é criada a paragem
-  public Paragem addParagem(String nomedaparagem, Linha novalinha, Paragem novaparagem) {
-      Paragem variavelaux = null;
-      boolean terminou = false;
-      
-      for(int i=0; i<novaparagem.getParagens().size() && !terminou; i++){
-       
-       variavelaux = (Paragem) novaparagem.getParagens().get(i);
-       if(variavelaux.getNomeParagem().equals(nomedaparagem)){  // vai procurar no array de paragens
-          variavelaux.setLinha(novalinha.getNome());            // se existe uma paragem com aquele nome
-       }else{                                                   // e define o campo linha como sendo o da linha em que vamos adicionar a paragem
-         StdOut.println("A paragem nao existe na BD");
-          terminou = true;
-          break;
-       }
-    }
-    return variavelaux; 
+  
+  public int addParagem(String nomeParagem) 
+    {
+      return this.ParagensST.get(nomeParagem); // obtemos o id the paragem atraves 
+                                                    // do nome
   }
 
+  
+    
+   public RedBlackBST loadParagem(String path) {
+       In in = new In(path);
+       int count = 0;
+        while(!in.isEmpty())
+        {
+            String[] texto = in.readLine().split(";");
+            String nomedaparagem = texto[0];                //geramos o id e guardamos na  BST
+            count = count + 1;
+            this.ParagensST.put(nomedaparagem, count);
+        }
+        return this.ParagensST;
+    }
+   public void printParagens()
+    {
+        
+        for(String s: this.ParagensST.keys())
+        {
+            StdOut.print(s + this.ParagensST.get(s) + "\n");
+        }
+    }
   public Paragem removeParagem(String nome) {
   return null;
   }
@@ -54,6 +73,7 @@ public class Linha extends ListaParagens{
   }
   public void setLinhas(String nome){
       linhas.add(nome);
+      
    }
   public String getNome()
   {
