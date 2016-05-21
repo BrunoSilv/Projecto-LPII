@@ -9,7 +9,7 @@ public class Linha {
 
   public String nome;
   
-  RedBlackBST<String,Integer> ParagensST = new RedBlackBST<>();
+  RedBlackBST<Integer,String> ParagensST = new RedBlackBST<>();
   
   Paragem novaparagem;
 
@@ -36,9 +36,9 @@ public class Linha {
 
   //definimos o nome e depois é criada a paragem
   
-  public int addParagem(String nomeParagem) 
+  public String addParagem(Integer id) 
     {
-      return this.ParagensST.get(nomeParagem); // obtemos o id the paragem atraves 
+      return this.ParagensST.get(id); // obtemos o id the paragem atraves 
                                                     // do nome
   }
 
@@ -46,24 +46,18 @@ public class Linha {
     
    public RedBlackBST loadParagem(String path) {
        In in = new In(path);
-       int count = 0;
+       
         while(!in.isEmpty())
         {
             String[] texto = in.readLine().split(";");
-            String nomedaparagem = texto[0];                //geramos o id e guardamos na  BST
-            count = count + 1;
-            this.ParagensST.put(nomedaparagem, count);
+            String id = texto[0];
+            String nomedaparagem = texto[1];
+            int ido = Integer.parseInt(id);//geramos o id e guardamos na  BST
+            this.ParagensST.put(ido, nomedaparagem);
         }
         return this.ParagensST;
     }
-   public void printParagens()
-    {
-        
-        for(String s: this.ParagensST.keys())
-        {
-            StdOut.print(s + this.ParagensST.get(s) + "\n");
-        }
-    }
+   
   public Paragem removeParagem(String nome) {
   return null;
   }
