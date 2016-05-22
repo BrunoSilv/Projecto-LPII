@@ -23,32 +23,23 @@ public class Main {
         // BST Passageiros
         RedBlackBST<String, Passageiro> passageiroST = new RedBlackBST<>();
         
+        //Load de passageiros
+        loadFromFilePassageirosST(passageiroST, ".//data//passageiros.txt");
+        
+       
         Linha novalinha;
         Paragem novaparagem;
         
-        loadPassageirosST(passageiroST, ".//data//passageiros.txt");
+        
         
         novaparagem = criarParagem();
         novaparagem.adicionaraLista(novaparagem);
         novalinha = criarLinha("linhad");
-        novaparagem = novalinha.addParagem("Trindade", novalinha, novaparagem);
+        //novaparagem = novalinha.addParagem("Trindade", novalinha, novaparagem);
         StdOut.print(novaparagem.getLinha() + "\n" + novaparagem.getNomeParagem()+ "\n"); // a funcionar
          
     }
-    public static void loadPassageirosST(RedBlackBST<String, Passageiro> passageiroST, String path){
-        In in = new In(path);
-        while(!in.isEmpty()){
-            String[] texto = in.readLine().split(";");
-            String id = texto[0];
-            String nome = texto[1];
-            String idade = texto[2];
-            String saldo = texto[3];
-            
-            Passageiro p = new Passageiro(id, nome, idade, saldo);
-            passageiroST.put(id, p);
-            
-        }
-    }
+    
     
     public static Linha criarLinha(String nome)
     {
@@ -86,6 +77,20 @@ public class Main {
         //null porque nao sabemos qual é a linha que queremos adicionar a paragem
         return novaparagem;
        
+    }
+    
+     public static void loadFromFilePassageirosST(RedBlackBST<String, Passageiro> passageiroST, String path) {
+        In in = new In(path); // abertura do ficheiro/stream de entrada
+        while (!in.isEmpty()) {
+            String[] texto = in.readLine().split(";");
+            String id = texto[0];
+            String nome = texto[1];
+            int idade = Integer.parseInt(texto[2]);
+            Float saldo = Float.parseFloat(texto[3]);
+
+            Passageiro p = new Passageiro(id, nome, idade, saldo);
+            passageiroST.put(id, p);
+        }
     }
     
 }
