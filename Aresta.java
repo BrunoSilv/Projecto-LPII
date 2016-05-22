@@ -1,12 +1,14 @@
 package edu.ufp.inf.lp2.projecto;
 
-import edu.princeton.cs.algs4.DirectedEdge;
 
-public class Aresta extends DirectedEdge {
+import edu.princeton.cs.algs4.StdOut;
+
+
+public class Aresta extends DirectedEdgelp {
 
     public float custoMonetario;
 
-    public float custoTemporal;
+    public double custoTemporal;
 
     public Paragem destino;
 
@@ -14,16 +16,12 @@ public class Aresta extends DirectedEdge {
     public Linha linhas;
     public Paragem tem;
 
-    public Aresta(int v, int w, double weight) {
-        super(v, w, weight);
+    public Aresta(int v, int w, double distancia,  double custoTemporal, float custoMonetario) {
+        super(v, w,distancia, custoTemporal, custoMonetario);
     }
 
-    public Linha addLinha(String nome) {
-        return null;
-    }
-
-    public void removeLinha(String nome) {
-    }
+    
+   
 
     // Gets/Sets
     public float getCustoMonetario() {
@@ -34,11 +32,11 @@ public class Aresta extends DirectedEdge {
         this.custoMonetario = custoMonetario;
     }
 
-    public float getCustoTemporal() {
+    public double getCustoTemporal() {
         return custoTemporal;
     }
 
-    public void setCustoTemporal(float custoTemporal) {
+    public void setCustoTemporal(double custoTemporal) {
         this.custoTemporal = custoTemporal;
     }
 
