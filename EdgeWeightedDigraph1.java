@@ -229,15 +229,7 @@ public class EdgeWeightedDigraph1 {
      * Unit tests the <tt>EdgeWeightedDigraph</tt> data type.
      */
     public static void main(String[] args) {
-        In in = new In(".//data//ligacoes.txt");
-        Linha novalinha = new Linha();
-        novalinha.loadParagem(".//data//paragem.txt");
-        EdgeWeightedDigraph1 G = new EdgeWeightedDigraph1(in);
-        for(DirectedEdgelp e: G.edges()){
-            
-            StdOut.print(novalinha.addParagem(e.from()) + "\n");
-            
-        }
+        
        
     }
 }
