@@ -24,19 +24,25 @@ public class Main {
         RedBlackBST<String, Passageiro> passageiroST = new RedBlackBST<>();
         
         //Load de passageiros
-        loadFromFilePassageirosST(passageiroST, ".//data//passageiros.txt");
-        
-       
+        loadFromFilePassageirosST(passageiroST, ".//data//passageiros.txt");  
         Linha novalinha;
         Paragem novaparagem;
         
+        In in = new In(".//data//ligacoes.txt");
+        novalinha = new Linha();
+        novalinha.loadParagem(".//data//paragem.txt");
+        Rede G = new Rede (in);
+        for(DirectedEdgelp e: G.edges()){
+            
+            StdOut.print(novalinha.addParagem(e.from()) + " : " + novalinha.addParagem(e.to()) + "\n");
+           
+        }
         
         
-        novaparagem = criarParagem();
-        novaparagem.adicionaraLista(novaparagem);
-        novalinha = criarLinha("linhad");
-        //novaparagem = novalinha.addParagem("Trindade", novalinha, novaparagem);
-        StdOut.print(novaparagem.getLinha() + "\n" + novaparagem.getNomeParagem()+ "\n"); // a funcionar
+        
+        
+        
+       
          
     }
     
@@ -66,18 +72,6 @@ public class Main {
         return acabou;
     }
  
-    public static Paragem criarParagem()
-    {
-        
-        String nome, cod, zona;
-        Coordenada novacoordenada = new Coordenada(45.84f,65.67f);
-        nome = "Trindade";
-        
-        Paragem novaparagem = new Paragem("Trindade", "C2",novacoordenada,"45",null);// o campo la linha é
-        //null porque nao sabemos qual é a linha que queremos adicionar a paragem
-        return novaparagem;
-       
-    }
     
      public static void loadFromFilePassageirosST(RedBlackBST<String, Passageiro> passageiroST, String path) {
         In in = new In(path); // abertura do ficheiro/stream de entrada
