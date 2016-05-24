@@ -1,18 +1,21 @@
 package edu.ufp.inf.lp2.projecto;
 
 import edu.princeton.cs.algs4.RedBlackBST;
-import java.util.Vector;
-import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 
-public class Rede extends EdgeWeightedDigraph {
+import edu.princeton.cs.algs4.In;
+
+public class Rede extends EdgeWeightedDigraph1 {
 
     public int id;
 
     public RedBlackBST passageiros;
+    
+    
 
     //Construtor
-    public Rede(int V) {
-        super(V);
+    public Rede(In in){
+            
+    super(in);   
     }
 
     public void addAresta() {
@@ -25,10 +28,7 @@ public class Rede extends EdgeWeightedDigraph {
         return 0.0f;
     }
 
-    public Paragem paragem(Coordenada c) {
-        return null;
-    }
-
+    
     //Gets/Sets
     public int getId() {
         return id;

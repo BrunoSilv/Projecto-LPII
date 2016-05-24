@@ -1,18 +1,19 @@
 package edu.ufp.inf.lp2.projecto;
-
+import edu.princeton.cs.algs4.In;
 import java.util.ArrayList;
+import edu.princeton.cs.algs4.RedBlackBST;
 
-public class Paragem extends ListaParagens{
+public class Paragem{
 
     public String nomeParagem;
 
     public String zona;
     
-    public Coordenada coordenada;
-
-    public String cod; //codigo da paragem
+    public Integer cod; //codigo da paragem
 
     public String linha;
+    
+    
     /**
      *
      * @element-type Aresta
@@ -23,15 +24,15 @@ public class Paragem extends ListaParagens{
     public Paragem()
     {}
     // Construtor que poderá ser usado caso queiramos importar os dados do ficheiro
-    public Paragem(String nomeParagem, String zona, Coordenada coordenada, String cod, String linha) {
+    public Paragem(Integer cod, String nomeParagem, String zona, String linha) {
+        this.cod = cod;
         this.nomeParagem = nomeParagem;
         this.zona = zona;
-        this.coordenada = coordenada;
-        this.cod = cod;
+        //this.coordenada = coordenada;
         this.linha = linha;
         //this. = paragens;
     }
-
+    
 // Gets/Sets
     public String getNomeParagem() {
         return nomeParagem;
@@ -49,19 +50,11 @@ public class Paragem extends ListaParagens{
         this.zona = zona;
     }
 
-    public Coordenada getCoordenada() {
-        return coordenada;
-    }
-
-    public void setCoordenada(Coordenada coordenada) {
-        this.coordenada = coordenada;
-    }
-
-    public String getCod() {
+    public int getCod() {
         return cod;
     }
 
-    public void setCod(String cod) {
+    public void setCod(Integer cod) {
         this.cod = cod;
     }
 

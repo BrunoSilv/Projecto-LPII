@@ -32,18 +32,12 @@ public class Main {
         novalinha = new Linha();
         novalinha.loadParagem(".//data//paragem.txt");
         Rede G = new Rede (in);
-        for(DirectedEdgelp e: G.edges()){
+        for(DirectedEdgelp e: G.edges())
+        {
             
             StdOut.print(novalinha.addParagem(e.from()) + " : " + novalinha.addParagem(e.to()) + "\n");
            
-        }
-        
-        
-        
-        
-        
-       
-         
+        }      
     }
     
     
