@@ -2,7 +2,6 @@ package edu.ufp.inf.lp2.projecto;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.RedBlackBST;
-import edu.princeton.cs.algs4.StdOut;
 import java.util.ArrayList;
 
 public class Linha {

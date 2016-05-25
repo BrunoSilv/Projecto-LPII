@@ -19,12 +19,12 @@ public class Passageiro extends RedBlackBST {
     public Coordenada coordenada;
 
     //Construtor
-    public Passageiro(String nome, String id, int idade, float saldo) {
-        this.nome = nome;
+    public Passageiro(String nome, String id, int idade, float saldo, Coordenada coordenada) {
         this.id = id;
+        this.nome = nome;    
         this.idade = idade;
         this.saldo = saldo;
-        //this.coordenada = coordenada;
+        this.coordenada = coordenada;
     }
 
 
@@ -99,8 +99,8 @@ public class Passageiro extends RedBlackBST {
         return coordenada;
     }
 
-//    public void setCoordenada(Coordenada coordenada) {
-//        this.coordenada = coordenada;
-//    }
+    public void setCoordenada(Coordenada coordenada) {
+        this.coordenada = coordenada;
+    }
 
 }
