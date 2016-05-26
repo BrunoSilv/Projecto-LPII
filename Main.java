@@ -91,7 +91,7 @@ public class Main {
         for (String id : passageiroST.keys()) {
             Passageiro p = (Passageiro) passageiroST.get(id);
             System.out.println("ID: " + p.getNome()+ " Nome: " + p.getId()+  " Saldo: " + p.getSaldo()
-            +" Localização: " + p.getCoordenada()
+            +" " + p.getCoordenada()
             );
         }
     }
