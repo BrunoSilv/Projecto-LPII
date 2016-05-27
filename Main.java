@@ -39,6 +39,11 @@ public class Main {
         novalinha = new Linha();
         novalinha.loadParagem(".//data//paragem.txt");
         Rede G = new Rede(in);
+        for(int i =0; i < G.V(); i++)
+        {
+            StdOut.print(novalinha.addParagem(i) + "\n"); // ciclo pra imprimir o nome das paragens
+                                                          
+        }
         for (DirectedEdgelp e : G.edges()) {
 
             StdOut.print(novalinha.addParagem(e.from()) + " : " + novalinha.addParagem(e.to()) + "\n");
@@ -76,13 +81,13 @@ public class Main {
             String nome = texto[1];
             int idade = Integer.parseInt(texto[2]);
             Float saldo = Float.parseFloat(texto[3]);
-            Float latitude = Float.parseFloat(texto[4]);
-            Float longitude = Float.parseFloat(texto[5]);
+            //Float latitude = Float.parseFloat(texto[4]);
+//            Float longitude = Float.parseFloat(texto[5]);
             
-            Coordenada c = new Coordenada(latitude, longitude);
+            //Coordenada c = new Coordenada(latitude, longitude);
 
-            Passageiro p = new Passageiro(id, nome, idade, saldo, c);
-            passageiroST.put(id, p);
+            //Passageiro p = new Passageiro(id, nome, idade, saldo, c);
+            //passageiroST.put(id, p);
         }
     }
 
