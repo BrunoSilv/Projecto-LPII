@@ -1,68 +1,73 @@
 package edu.ufp.inf.lp2.projecto;
-import edu.princeton.cs.algs4.In;
-import java.util.ArrayList;
-import edu.princeton.cs.algs4.RedBlackBST;
 
-public class Paragem{
+public class Paragem {
 
-    public String nomeParagem;
+    public String id;
 
-    public String zona;
-    
-    public Integer cod; //codigo da paragem
+    public String nome;
 
-    public String linha;
-    
-    
+    public Coordenada coordenada;
+
+    public int zona;
+
     /**
      *
      * @element-type Aresta
      */
-    
-
     // Contructor vazio
-    public Paragem()
-    {}
-    // Construtor que poderá ser usado caso queiramos importar os dados do ficheiro
-    public Paragem(Integer cod, String nomeParagem, String zona, String linha) {
-        this.cod = cod;
-        this.nomeParagem = nomeParagem;
+    public Paragem() {
+    }
+
+    public Paragem(String id, String nome, Coordenada coordenada, int zona) {
+        this.id = id;
+        this.nome = nome;
+        this.coordenada = coordenada;
         this.zona = zona;
-        //this.coordenada = coordenada;
-        this.linha = linha;
-        //this. = paragens;
     }
+
     
+//    // Construtor que poderá ser usado caso queiramos importar os dados do ficheiro
+//    public Paragem(Integer cod, String nomeParagem, String zona, String linha) {
+//        this.cod = cod;
+//        this.nome = nomeParagem;
+//        this.zona = zona;
+//        //this.coordenada = coordenada;
+//        this.linha = linha;
+//        //this. = paragens;
+//    }
+
 // Gets/Sets
-    public String getNomeParagem() {
-        return nomeParagem;
+
+    public String getId() {
+        return id;
     }
 
-    public void setNomeParagem(String nomeParagem) {
-        this.nomeParagem = nomeParagem;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getZona() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Coordenada getCoordenada() {
+        return coordenada;
+    }
+
+    public void setCoordenada(Coordenada coordenada) {
+        this.coordenada = coordenada;
+    }
+
+    public int getZona() {
         return zona;
     }
 
-    public void setZona(String zona) {
+    public void setZona(int zona) {
         this.zona = zona;
     }
 
-    public int getCod() {
-        return cod;
-    }
-
-    public void setCod(Integer cod) {
-        this.cod = cod;
-    }
-
-    public String getLinha() {
-        return linha;
-    }
-
-    public void setLinha(String linha) {
-        this.linha = linha;
-    }
 }

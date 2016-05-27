@@ -5,24 +5,26 @@
  */
 package edu.ufp.inf.lp2.projecto;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import static java.lang.System.in;
-import java.util.ArrayList;
-
 /**
  *
  * @author bluis
  */
 public class Interface extends javax.swing.JFrame {
 
+    protected static Rede rede;
+
     /**
      * Creates new form Interface
      */
     public Interface() {
         initComponents();
-        populate();
+        this.rede.loadPassageiros(".//data//passageiros.txt");
+        for (String id : this.rede.getPassageiroST().keys()) {
+            Passageiro p = this.rede.getPassageiroST().get(id);
+            //System.out.println(p.toString());
+            jComboBox1.addItem("" + p.getNome());
+        }
+
     }
 
     /**
@@ -467,29 +469,4 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
-    private void populate() {
-        String[] lines;
-        lines = readFile();
-
-        jComboBox1.removeAllItems();
-
-        for (String str : lines) {
-            jComboBox1.addItem(str);
-        }
-    }
-
-    private String[] readFile() {
-        ArrayList<String> arr = new ArrayList<>();
-        try {
-            FileInputStream fstream = new FileInputStream(".//data//passageiros.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-            String strLine;
-            while ((strLine = br.readLine()) != null) {
-                arr.add(strLine);
-            }
-            in.close();
-        } catch (Exception e) {
-        }
-        return arr.toArray(new String[arr.size()]);
-    }
 }
