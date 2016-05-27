@@ -80,7 +80,7 @@ public class Rede extends EdgeWeightedDigraph1 {
             String nome = texto[1];
             Float latitude = Float.parseFloat(texto[2]);
             Float longitude = Float.parseFloat(texto[3]);
-            Integer zona = Integer.parseInt(texto[4]);
+            String zona = texto[4];
             
             Coordenada c = new Coordenada(latitude, longitude);
             

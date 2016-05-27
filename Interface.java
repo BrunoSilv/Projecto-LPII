@@ -27,13 +27,13 @@ public class Interface extends javax.swing.JFrame {
             Passageiro p = this.rede.getPassageiroST().get(id);
             //System.out.println(p.toString()); Test SOUT
             boxPassageiros.addItem("" + p.getId());
-        }
-//            this.rede.loadParagens(".//data//paragem.txt");
-//            for (String idp : this.rede.getParagensST().keys()) {
-//                Paragem pa = this.rede.getParagensST().get(idp);
-//                //System.out.println(p.toString()); Test SOUT
-//                boxParagens.addItem("" + pa.getId());
-//            }
+        }  
+        this.rede.loadParagens(".//data//paragem.txt");
+            for (String idp : this.rede.getParagensST().keys()) {
+                Paragem pa = this.rede.getParagensST().get(idp);
+                //System.out.println(p.toString()); Test SOUT
+                boxParagens.addItem("" + pa.getId());
+            }
 
         // Se colocares o tamanho automatico, o "pack usa o tamanho que tens definido na parte do design.
         //this.pack();
@@ -105,6 +105,7 @@ public class Interface extends javax.swing.JFrame {
         longEdit2 = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jButton3 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -506,6 +507,19 @@ public class Interface extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Gestor", jTabbedPane2);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 232, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 354, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Mapa", jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -526,15 +540,14 @@ public class Interface extends javax.swing.JFrame {
 
     private void boxPassageirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxPassageirosActionPerformed
 
-        //this.jTextField1.setText(rede.getPassageiroST().get(jComboBox1.getSelectedIndex()).getId());
         String combo_id = ((String) boxPassageiros.getSelectedItem().toString());
-        Passageiro aux = this.rede.getPassageiroST().get(combo_id);
-        idEdit.setText(String.valueOf(aux.getId()));
-        nameEdit.setText(aux.getNome());
-        idadeEdit.setText(String.valueOf(aux.getIdade()));
-        saldoEdit.setText(String.valueOf(aux.getSaldo()));
-        latEdit.setText(String.valueOf(aux.getCoordenada().latitude));
-        longEdit.setText(String.valueOf(aux.getCoordenada().longitude));
+        Passageiro p = this.rede.getPassageiroST().get(combo_id);
+        idEdit.setText(String.valueOf(p.getId()));
+        nameEdit.setText(p.getNome());
+        idadeEdit.setText(String.valueOf(p.getIdade()));
+        saldoEdit.setText(String.valueOf(p.getSaldo()));
+        latEdit.setText(String.valueOf(p.getCoordenada().latitude));
+        longEdit.setText(String.valueOf(p.getCoordenada().longitude));
     }//GEN-LAST:event_boxPassageirosActionPerformed
 
     private void idEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEditActionPerformed
@@ -542,13 +555,14 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_idEditActionPerformed
 
     private void boxParagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxParagensActionPerformed
+        
         String combo_id = ((String) boxParagens.getSelectedItem().toString());
-        Paragem aux = this.rede.getParagensST().get(combo_id);
-        pidEdit.setText(String.valueOf(aux.getId()));
-        pnomeEdit.setText(aux.getNome());
-        platEdit.setText(String.valueOf(aux.getCoordenada().latitude));
-        plonEdit.setText(String.valueOf(aux.getCoordenada().longitude));
-        zonaEdit.setText(String.valueOf(aux.getZona()));
+        Paragem pa = this.rede.getParagensST().get(combo_id);
+        pidEdit.setText(String.valueOf(pa.getId()));
+        pnomeEdit.setText(pa.getNome());
+        platEdit.setText(String.valueOf(pa.getCoordenada().latitude));
+        plonEdit.setText(String.valueOf(pa.getCoordenada().longitude));
+        zonaEdit.setText(pa.getZona());
     }//GEN-LAST:event_boxParagensActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -637,6 +651,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

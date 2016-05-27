@@ -8,7 +8,7 @@ public class Paragem {
 
     public Coordenada coordenada;
 
-    public int zona;
+    public String zona;
 
     /**
      *
@@ -18,7 +18,7 @@ public class Paragem {
     public Paragem() {
     }
 
-    public Paragem(String id, String nome, Coordenada coordenada, int zona) {
+    public Paragem(String id, String nome, Coordenada coordenada, String zona) {
         this.id = id;
         this.nome = nome;
         this.coordenada = coordenada;
@@ -62,11 +62,11 @@ public class Paragem {
         this.coordenada = coordenada;
     }
 
-    public int getZona() {
+    public String getZona() {
         return zona;
     }
 
-    public void setZona(int zona) {
+    public void setZona(String zona) {
         this.zona = zona;
     }
 
