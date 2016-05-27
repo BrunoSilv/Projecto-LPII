@@ -19,9 +19,9 @@ public class Passageiro extends RedBlackBST {
     public Coordenada coordenada;
 
     //Construtor
-    public Passageiro(String nome, String id, int idade, float saldo, Coordenada coordenada) {
-        this.id = id;
-        this.nome = nome;    
+    public Passageiro(String id, String nome, int idade, float saldo, Coordenada coordenada) {
+        this.nome = nome;  
+        this.id = id;  
         this.idade = idade;
         this.saldo = saldo;
         this.coordenada = coordenada;
@@ -58,9 +58,6 @@ public class Passageiro extends RedBlackBST {
         preco = this.saldo--;
     }
 
-    public int getIdade() {
-        return 0;
-    }
 
     // Gets/Sets
     public String getNome() {
@@ -77,6 +74,14 @@ public class Passageiro extends RedBlackBST {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 
     public int getDataNasc() {
