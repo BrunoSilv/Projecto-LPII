@@ -70,20 +70,19 @@ public class Rede extends EdgeWeightedDigraph1 {
             passageiroST.put(id, p);
         }
     }
-    
+
     public void loadParagens(String path) {
-       In in = new In(path);
-        while(!in.isEmpty())
-        {
+        In in = new In(path);
+        while (!in.isEmpty()) {
             String[] texto = in.readLine().split(";");
             String id = texto[0];
             String nome = texto[1];
             Float latitude = Float.parseFloat(texto[2]);
             Float longitude = Float.parseFloat(texto[3]);
             String zona = texto[4];
-            
+
             Coordenada c = new Coordenada(latitude, longitude);
-            
+
             Paragem pa = new Paragem(id, nome, c, zona);
             paragensST.put(id, pa);
         }
@@ -98,10 +97,10 @@ public class Rede extends EdgeWeightedDigraph1 {
             );
         }
     }
-    
-    public void printParagens(){
+
+    public void printParagens() {
         System.out.println("\nLista de Paragens:");
-        for (String id : paragensST.keys()){
+        for (String id : paragensST.keys()) {
             Paragem pa = (Paragem) paragensST.get(id);
             System.out.println("ID: " + pa.getId() + "Nome: " + pa.getNome() + " Coordenada: " + pa.getCoordenada() + " Zona: " + pa.getZona());
         }

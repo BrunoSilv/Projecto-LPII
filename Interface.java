@@ -7,6 +7,7 @@ package edu.ufp.inf.lp2.projecto;
 
 import edu.princeton.cs.algs4.In;
 
+
 /**
  *
  * @author bluis
@@ -27,7 +28,8 @@ public class Interface extends javax.swing.JFrame {
             Passageiro p = this.rede.getPassageiroST().get(id);
             //System.out.println(p.toString()); Test SOUT
             boxPassageiros.addItem("" + p.getId());
-        }  
+        }
+
         this.rede.loadParagens(".//data//paragem.txt");
             for (String idp : this.rede.getParagensST().keys()) {
                 Paragem pa = this.rede.getParagensST().get(idp);
@@ -109,11 +111,17 @@ public class Interface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane2.setBackground(new java.awt.Color(0, 153, 153));
+
+        jPanel5.setBackground(new java.awt.Color(0, 153, 153));
+
         boxPassageiros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxPassageirosActionPerformed(evt);
             }
         });
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel4.setText("ID:");
 
@@ -245,6 +253,8 @@ public class Interface extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Passageiros", jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(0, 153, 153));
+
         boxParagens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxParagensActionPerformed(evt);
@@ -258,6 +268,8 @@ public class Interface extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
+
+        jPanel8.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel21.setText("ID:");
 
