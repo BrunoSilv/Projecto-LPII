@@ -2,7 +2,7 @@ package edu.ufp.inf.lp2.projecto;
 
 public class Paragem {
 
-    public String id;
+    public Integer id;
 
     public String nome;
 
@@ -18,7 +18,7 @@ public class Paragem {
     public Paragem() {
     }
 
-    public Paragem(String id, String nome, Coordenada coordenada, String zona) {
+    public Paragem(Integer id, String nome, Coordenada coordenada, String zona) {
         this.id = id;
         this.nome = nome;
         this.coordenada = coordenada;
@@ -38,11 +38,11 @@ public class Paragem {
 
 // Gets/Sets
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

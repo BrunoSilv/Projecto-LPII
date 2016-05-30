@@ -1,16 +1,19 @@
 package edu.ufp.inf.lp2.projecto;
 
+import edu.princeton.cs.algs4.DijkstraSP;
+import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import edu.princeton.cs.algs4.RedBlackBST;
 
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
 
-public class Rede extends EdgeWeightedDigraph1 {
+public class Rede extends EdgeWeightedDigraph {
 
     public int id;
 
     // RedBlacks
     private RedBlackBST<String, Passageiro> passageiroST = new RedBlackBST<>();
-    private RedBlackBST<String, Paragem> paragensST = new RedBlackBST<>();
+    private RedBlackBST<Integer, Paragem> paragensST = new RedBlackBST<>();
 
     //Construtor
     public Rede(In in) {
@@ -45,11 +48,11 @@ public class Rede extends EdgeWeightedDigraph1 {
         this.passageiroST = passageiroST;
     }
 
-    public RedBlackBST<String, Paragem> getParagensST() {
+    public RedBlackBST<Integer, Paragem> getParagensST() {
         return paragensST;
     }
 
-    public void setParagensST(RedBlackBST<String, Paragem> paragensST) {
+    public void setParagensST(RedBlackBST<Integer, Paragem> paragensST) {
         this.paragensST = paragensST;
     }
 
@@ -75,7 +78,7 @@ public class Rede extends EdgeWeightedDigraph1 {
         In in = new In(path);
         while (!in.isEmpty()) {
             String[] texto = in.readLine().split(";");
-            String id = texto[0];
+            Integer id = Integer.parseInt(texto[0]);
             String nome = texto[1];
             Float latitude = Float.parseFloat(texto[2]);
             Float longitude = Float.parseFloat(texto[3]);
@@ -100,9 +103,19 @@ public class Rede extends EdgeWeightedDigraph1 {
 
     public void printParagens() {
         System.out.println("\nLista de Paragens:");
-        for (String id : paragensST.keys()) {
+        for (Integer id : paragensST.keys()) {
             Paragem pa = (Paragem) paragensST.get(id);
             System.out.println("ID: " + pa.getId() + "Nome: " + pa.getNome() + " Coordenada: " + pa.getCoordenada() + " Zona: " + pa.getZona());
+        }
+    }
+
+    public void caminhoMaisBarato(int v, int w, EdgeWeightedDigraph G) {
+        DijkstraSP sp = new DijkstraSP(G, v);
+        if (sp.hasPathTo(w)) {
+            StdOut.printf("%s : %s (%.2f)", this.paragensST.get(v).getNome(), sp.distTo(w));
+            StdOut.println();
+        } else {
+            StdOut.printf("%s to %s nao existe caminho\n", this.paragensST.get(v).getNome(), this.paragensST.get(w).getNome());
         }
     }
 }

@@ -5,6 +5,7 @@
  */
 package edu.ufp.inf.lp2.projecto;
 
+import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -29,16 +30,18 @@ public class Main {
         novalinha = new Linha();
         novalinha.loadParagem(".//data//paragem.txt");
         Rede G = new Rede(in);
+        G.loadParagens(".//data//paragem.txt");
         for(int i =0; i < G.V(); i++)
         {
             StdOut.print(novalinha.addParagem(i) + "\n"); // ciclo pra imprimir o nome das paragens
                                                           
         }
-        for (DirectedEdgelp e : G.edges()) {
+        for (DirectedEdge e : G.edges()) {
 
             StdOut.print(novalinha.addParagem(e.from()) + " : " + novalinha.addParagem(e.to()) + "\n");
 
         }
+        G.caminhoMaisBarato(28, 26, G);
     }
 
     public static Linha criarLinha(String nome) {

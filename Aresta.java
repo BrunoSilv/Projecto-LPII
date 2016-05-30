@@ -1,10 +1,11 @@
 package edu.ufp.inf.lp2.projecto;
 
 
+import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.StdOut;
 
 
-public class Aresta extends DirectedEdgelp {
+public class Aresta extends DirectedEdge {
 
     public float custoMonetario;
 
@@ -16,8 +17,8 @@ public class Aresta extends DirectedEdgelp {
     public Linha linhas;
     public Paragem tem;
 
-    public Aresta(int v, int w, double distancia,  double custoTemporal, float custoMonetario) {
-        super(v, w,distancia, custoTemporal, custoMonetario);
+    public Aresta(int v, int w, double distancia) {
+        super(v, w,distancia);
     }
 
     

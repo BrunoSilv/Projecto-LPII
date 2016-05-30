@@ -568,7 +568,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void boxParagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxParagensActionPerformed
         
-        String combo_id = ((String) boxParagens.getSelectedItem().toString());
+        Integer combo_id = ((String) boxParagens.getSelectedItem().toString());
         Paragem pa = this.rede.getParagensST().get(combo_id);
         pidEdit.setText(String.valueOf(pa.getId()));
         pnomeEdit.setText(pa.getNome());
