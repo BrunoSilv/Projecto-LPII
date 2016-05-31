@@ -1,5 +1,8 @@
 package edu.ufp.inf.lp2.projecto;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 public class Paragem {
 
     public Integer id;
@@ -68,6 +71,19 @@ public class Paragem {
 
     public void setZona(String zona) {
         this.zona = zona;
+    }
+    
+    public void draw(Graphics g) {
+        int x=(int) this.getCoordenada().longitude;
+        int y=(int) this.getCoordenada().latitude;
+        int width= 5;
+        int height=width;
+        try{
+            g.setColor(Color.BLUE);
+            g.fillOval(x, y, width, height);
+        }catch(java.lang.NullPointerException npe){
+            System.out.println(npe.toString());
+        }
     }
 
 }

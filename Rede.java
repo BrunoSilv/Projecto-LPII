@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import edu.princeton.cs.algs4.RedBlackBST;
 
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Rede extends EdgeWeightedDigraph {
@@ -21,11 +22,6 @@ public class Rede extends EdgeWeightedDigraph {
         super(in);
     }
 
-    public void addAresta() {
-    }
-
-    public void removeAresta() {
-    }
 
     public float calDesconto(Passageiro p) {
         return 0.0f;
@@ -108,7 +104,24 @@ public class Rede extends EdgeWeightedDigraph {
             System.out.println("ID: " + pa.getId() + "Nome: " + pa.getNome() + " Coordenada: " + pa.getCoordenada() + " Zona: " + pa.getZona());
         }
     }
+    
+    public void savePassageiros(String path) {
+        Out o = new Out(path);
+        for (String idPassageiro : passageiroST.keys()) {
+            Passageiro pa = (Passageiro) passageiroST.get(idPassageiro);
+            o.println(pa.getId() + ";" + pa.getNome() + ";" + pa.getIdade() + ";" + pa.getSaldo() + ";" + pa.getCoordenada().latitude + ";" + pa.getCoordenada().longitude);
+        }
 
+    }
+
+    public void saveParagens(String path) {
+        Out o = new Out(path);
+        for (Integer idp : paragensST.keys()) {
+            Paragem pa = (Paragem) paragensST.get(idp);
+            o.println(pa.getId() + ";" + pa.getNome() + ";" + pa.getCoordenada().latitude + ";" + pa.getCoordenada().longitude + ";" + pa.getZona());
+        }
+    }
+    
     public void caminhoMaisBarato(int v, int w, EdgeWeightedDigraph G) {
         DijkstraSP sp = new DijkstraSP(G, v);
         if (sp.hasPathTo(w)) {
