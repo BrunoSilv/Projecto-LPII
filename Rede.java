@@ -7,6 +7,8 @@ import edu.princeton.cs.algs4.RedBlackBST;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Rede extends EdgeWeightedDigraph {
 
@@ -21,7 +23,9 @@ public class Rede extends EdgeWeightedDigraph {
 
         super(in);
     }
-
+    public Rede(int v){
+      super(v);  
+    }
 
     public float calDesconto(Passageiro p) {
         return 0.0f;
@@ -86,6 +90,23 @@ public class Rede extends EdgeWeightedDigraph {
             paragensST.put(id, pa);
         }
     }
+    
+    public void loadRedes(String path) {
+        In in = new In(path);
+        while (!in.isEmpty()) {
+            String[] texto = in.readLine().split(" ");
+            Integer id = Integer.parseInt(texto[0]);
+            String nome = texto[1];
+            Float latitude = Float.parseFloat(texto[2]);
+            Float longitude = Float.parseFloat(texto[3]);
+            String zona = texto[4];
+
+            Coordenada c = new Coordenada(latitude, longitude);
+
+            Paragem pa = new Paragem(id, nome, c, zona);
+            paragensST.put(id, pa);
+        }
+    }
 
     public void printPassageiro() {
         System.out.println("\nLista de Passageiros:");
@@ -104,7 +125,7 @@ public class Rede extends EdgeWeightedDigraph {
             System.out.println("ID: " + pa.getId() + "Nome: " + pa.getNome() + " Coordenada: " + pa.getCoordenada() + " Zona: " + pa.getZona());
         }
     }
-    
+
     public void savePassageiros(String path) {
         Out o = new Out(path);
         for (String idPassageiro : passageiroST.keys()) {
@@ -121,7 +142,7 @@ public class Rede extends EdgeWeightedDigraph {
             o.println(pa.getId() + ";" + pa.getNome() + ";" + pa.getCoordenada().latitude + ";" + pa.getCoordenada().longitude + ";" + pa.getZona());
         }
     }
-    
+
     public void caminhoMaisBarato(int v, int w, EdgeWeightedDigraph G) {
         DijkstraSP sp = new DijkstraSP(G, v);
         if (sp.hasPathTo(w)) {
@@ -129,6 +150,22 @@ public class Rede extends EdgeWeightedDigraph {
             StdOut.println();
         } else {
             StdOut.printf("%s to %s nao existe caminho\n", this.paragensST.get(v).getNome(), this.paragensST.get(w).getNome());
+        }
+    }
+
+    public void drawParagens(Graphics g) {
+        for (Integer id : paragensST.keys()) {
+            Paragem pa = (Paragem) paragensST.get(id);
+            int x = (int) pa.getCoordenada().longitude;
+            int y = (int) pa.getCoordenada().latitude;
+            int width = 5;
+            int height = width;
+            try {
+                g.setColor(Color.BLUE);
+                g.fillOval(x, y, width, height);
+            } catch (java.lang.NullPointerException npe) {
+                System.out.println(npe.toString());
+            }
         }
     }
 }

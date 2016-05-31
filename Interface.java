@@ -25,18 +25,18 @@ public class Interface extends javax.swing.JFrame {
         this.rede.loadPassageiros(".//data//passageiros.txt");
         for (String id : this.rede.getPassageiroST().keys()) {
             Passageiro p = this.rede.getPassageiroST().get(id);
-            //System.out.println(p.toString()); Test SOUT
+            //System.out.println(p.toString()); 
             boxPassageiros.addItem("" + p.getId());
         }
 
         this.rede.loadParagens(".//data//paragem.txt");
         for (Integer idp : this.rede.getParagensST().keys()) {
             Paragem pa = this.rede.getParagensST().get(idp);
-            //System.out.println(p.toString()); Test SOUT
+            //System.out.println(p.toString()); 
             boxParagens.addItem("" + pa.getId());
+            boxRede.addItem("" + pa.getId());
+            boxRede1.addItem("" + pa.getId());
         }
-        
-        this.rede.savePassageiros(".//data//passageiros.txt");
 
         // Se colocares o tamanho automatico, o "pack usa o tamanho que tens definido na parte do design.
         //this.pack();
@@ -70,7 +70,7 @@ public class Interface extends javax.swing.JFrame {
         longEdit = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         guardarPassageiro = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        pesquisaPassageiros = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         boxParagens = new javax.swing.JComboBox<>();
@@ -89,11 +89,23 @@ public class Interface extends javax.swing.JFrame {
         plonEdit = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         guardarParagens = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        boxRede = new javax.swing.JComboBox<>();
+        guardarLigaçao = new javax.swing.JButton();
+        boxRede1 = new javax.swing.JComboBox<>();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        pidEdit3 = new javax.swing.JTextField();
+        pnomeEdit3 = new javax.swing.JTextField();
+        platEdit3 = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,16 +201,23 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        guardarPassageiro.setText("Guardar");
+        guardarPassageiro.setText("Guardar / Criar");
         guardarPassageiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarPassageiroActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        pesquisaPassageiros.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                pesquisaPassageirosInputMethodTextChanged(evt);
+            }
+        });
+        pesquisaPassageiros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                pesquisaPassageirosActionPerformed(evt);
             }
         });
 
@@ -214,7 +233,7 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pesquisaPassageiros, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(boxPassageiros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(guardarPassageiro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -227,7 +246,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(boxPassageiros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pesquisaPassageiros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,7 +345,7 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(43, 43, 43))
         );
 
-        guardarParagens.setText("Guardar");
+        guardarParagens.setText("Guardar / Criar");
         guardarParagens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarParagensActionPerformed(evt);
@@ -367,6 +386,104 @@ public class Interface extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Paragens", jPanel6);
 
+        boxRede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxRedeActionPerformed(evt);
+            }
+        });
+
+        guardarLigaçao.setText("Ligação");
+        guardarLigaçao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarLigaçaoActionPerformed(evt);
+            }
+        });
+
+        boxRede1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxRede1ActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Tempo:");
+
+        jLabel33.setText("Custo:");
+
+        jLabel34.setText("Distancia:");
+
+        pidEdit3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pidEdit3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator5)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel33))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnomeEdit3)
+                    .addComponent(platEdit3)
+                    .addComponent(pidEdit3)))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(pidEdit3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(pnomeEdit3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(platEdit3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(105, 105, 105))
+        );
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(boxRede, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guardarLigaçao, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boxRede1, 0, 55, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boxRede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guardarLigaçao)
+                    .addComponent(boxRede1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Rede", jPanel9);
+
         jTabbedPane1.addTab("Gestor", jTabbedPane2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -377,26 +494,31 @@ public class Interface extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
+            .addGap(0, 323, Short.MAX_VALUE)
         );
 
         jTabbedPane3.addTab("Pesquisas", jPanel3);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 228, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 323, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane3.addTab("Visualizar", jPanel4);
@@ -431,6 +553,8 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarParagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarParagensActionPerformed
+        Paragem p = new Paragem(Integer.parseInt(pidEdit.getText()), pnomeEdit.getText(), new Coordenada(Float.parseFloat(platEdit.getText()), Float.parseFloat(plonEdit.getText())),zonaEdit.getText());
+        this.rede.getParagensST().put(p.getId(), p);
         this.rede.saveParagens(".//data//paragem.txt");
     }//GEN-LAST:event_guardarParagensActionPerformed
 
@@ -443,7 +567,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void boxParagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxParagensActionPerformed
-
+        
         Integer comboParagens = Integer.parseInt((String) boxParagens.getSelectedItem().toString());
         Paragem pa = this.rede.getParagensST().get(comboParagens);
         pidEdit.setText(String.valueOf(pa.getId()));
@@ -453,23 +577,14 @@ public class Interface extends javax.swing.JFrame {
         zonaEdit.setText(pa.getZona());
     }//GEN-LAST:event_boxParagensActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void pesquisaPassageirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaPassageirosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_pesquisaPassageirosActionPerformed
 
     private void guardarPassageiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarPassageiroActionPerformed
-        
-//        String count = ((String) boxPassageiros.getSelectedItem().toString());
-//        Passageiro p = this.rede.getPassageiroST().get(count);
-//        idEdit.getText();
-//        nameEdit.getText();
-//        idadeEdit.getText();
-//        saldoEdit.getText();
-//        latEdit.getText();
-//        longEdit.getText();
-//        
+        Passageiro p = new Passageiro(idEdit.getText(), nameEdit.getText(), Integer.parseInt(idadeEdit.getText()), Float.parseFloat(saldoEdit.getText()), new Coordenada(Float.parseFloat(latEdit.getText()), Float.parseFloat(longEdit.getText())));
+        this.rede.getPassageiroST().put(p.getId(), p);
         this.rede.savePassageiros(".//data//passageiros.txt");
-        
     }//GEN-LAST:event_guardarPassageiroActionPerformed
 
     private void idEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEditActionPerformed
@@ -488,6 +603,26 @@ public class Interface extends javax.swing.JFrame {
         longEdit.setText(String.valueOf(p.getCoordenada().longitude));
     }//GEN-LAST:event_boxPassageirosActionPerformed
 
+    private void pesquisaPassageirosInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_pesquisaPassageirosInputMethodTextChanged
+
+    }//GEN-LAST:event_pesquisaPassageirosInputMethodTextChanged
+
+    private void boxRedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxRedeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxRedeActionPerformed
+
+    private void guardarLigaçaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarLigaçaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarLigaçaoActionPerformed
+
+    private void boxRede1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxRede1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxRede1ActionPerformed
+
+    private void pidEdit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pidEdit3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pidEdit3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -502,16 +637,24 @@ public class Interface extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -526,6 +669,9 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxParagens;
     private javax.swing.JComboBox<String> boxPassageiros;
+    private javax.swing.JComboBox<String> boxRede;
+    private javax.swing.JComboBox<String> boxRede1;
+    private javax.swing.JButton guardarLigaçao;
     private javax.swing.JButton guardarParagens;
     private javax.swing.JButton guardarPassageiro;
     private javax.swing.JTextField idEdit;
@@ -537,6 +683,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -544,27 +693,33 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField latEdit;
     private javax.swing.JTextField longEdit;
     private javax.swing.JTextField nameEdit;
+    private javax.swing.JTextField pesquisaPassageiros;
     private javax.swing.JTextField pidEdit;
+    private javax.swing.JTextField pidEdit3;
     private javax.swing.JTextField platEdit;
+    private javax.swing.JTextField platEdit3;
     private javax.swing.JTextField plonEdit;
     private javax.swing.JTextField pnomeEdit;
+    private javax.swing.JTextField pnomeEdit3;
     private javax.swing.JTextField saldoEdit;
     private javax.swing.JTextField zonaEdit;
     // End of variables declaration//GEN-END:variables

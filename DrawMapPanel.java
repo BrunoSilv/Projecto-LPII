@@ -5,12 +5,17 @@
  */
 package edu.ufp.inf.lp2.projecto;
 
+import edu.princeton.cs.algs4.DirectedEdge;
+import java.awt.Color;
+import java.awt.Graphics;
+
+
 /**
  *
  * @author bluis
  */
 public class DrawMapPanel extends javax.swing.JPanel {
-
+    
     private Rede rede;
     /**
      * Creates new form DrawMapPanel
@@ -18,11 +23,12 @@ public class DrawMapPanel extends javax.swing.JPanel {
     public DrawMapPanel() {
         this.rede = Interface.rede;
         initComponents();
-        
         System.out.println("Como ir buscar a instancia de uma class :) " + rede.toString());
-        // agora tens acesso a tudo que ja tens instanciado dentro de uma "rede"
-    }
 
+// agora tens acesso a tudo que ja tens instanciado dentro de uma "rede"
+    }
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,4 +53,5 @@ public class DrawMapPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
 }

@@ -42,6 +42,7 @@ public class Main {
 
         }
         G.caminhoMaisBarato(28, 26, G);
+        Rede G1 = new Rede(4);
     }
 
     public static Linha criarLinha(String nome) {
